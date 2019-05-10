@@ -20,6 +20,12 @@ def load_toyama_second():
     f.close()
     return data
 
+def load_toyama_second_pos():
+    with open("GySon\\data\\toyama_second_pos.pkl", "rb") as f:
+        data = pickle.load(f)
+    f.close()
+    return data
+
 def read_csv_data(dataset, filename, encoding="SHIFT-JIS"):
     df = pd.read_csv(filename, encoding=encoding)
     for i,x in enumerate(df["name"]):

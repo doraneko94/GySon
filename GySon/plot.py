@@ -1,9 +1,10 @@
 from matplotlib import pyplot as plt
 from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
+from GySon.dataset import load_toyama_second_pos
 from GySon.colormap import rb
 import numpy as np
 
-def heatmap(dataset, save_name=None, front_color="rb", back_color="k", title=None):
+def heatmap(dataset, save_name=None, front_color="rb", back_color="k", title=None, show=True, school=False):
     fig = plt.figure(figsize=(9,8))
     gs_master = GridSpec(nrows=1, ncols=2, width_ratios=[8, 1])
     gs_1 = GridSpecFromSubplotSpec(nrows=1, ncols=1, subplot_spec=gs_master[0, 0])
@@ -42,6 +43,17 @@ def heatmap(dataset, save_name=None, front_color="rb", back_color="k", title=Non
     ax_c.set_xlim([0,1])
     ax_c.tick_params(labelbottom=False)
     ax_c.set_ylim([min_y, max_y])
+    
+    if school:
+        sf2 = load_toyama_second_pos().values()
+        x = []
+        y = []
+        for i in sf2:
+            x.append(i[0])
+            y.append(i[1])
+        ax.plot(x, y, marker="o", linestyle="None")
+    
     if save_name:
         plt.savefig(save_name)
-    plt.show()
+    if show:
+        plt.show()
