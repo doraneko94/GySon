@@ -18,6 +18,11 @@ def load_toyama_second():
     with open("GySon\\data\\toyama_second_double.pkl", "rb") as f:
         data["double"] = pickle.load(f)
     f.close()
+
+    with open("GySon\\data\\toyama_second_shape_ext.pkl", "rb") as f:
+        data["ext"] = pickle.load(f)
+    f.close()
+
     return data
 
 def load_toyama_second_pos():

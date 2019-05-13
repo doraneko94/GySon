@@ -92,3 +92,7 @@ ax.add_patch(poly)
 plt.xlim([136,138])
 plt.ylim([36,37])
 plt.show()
+
+f = open("toyama_second_shape_ext.pkl", "wb")
+pickle.dump(pos, f)
+f.close()

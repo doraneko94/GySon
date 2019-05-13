@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 sf = shapefile.Reader("sch\\P29-13_16.shp", encoding="SHIFT-JIS")
 data = {}
 for i, rec in enumerate(sf.records()):
-    if rec[2] == "16002":
+    if rec[2] == "16002" or (rec[2] == "99999" and rec[4] == "新湊中学校"):
         if rec[4] in ["富山大学人間発達科学部附属中学校", "片山学園中学校", "新湊西部中学校", "奈古中学校"]:
             continue
         if rec[0] == "16201":
